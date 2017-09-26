@@ -148,58 +148,6 @@ var Relation = (function () {
                 }
             }
         };
-
-        if (fromObject.data.position.left + fromObject.data.position.width <= toObject.data.position.left) {
-            return {
-                line: {
-                    from: {
-                        x: fromObject.data.position.left + fromObject.data.position.width,
-                        y: fromObject.data.position.top + fromObject.data.position.height / 2
-                    },
-                    to: {
-                        x: toObject.data.position.left - fromObject.data.position.left - fromObject.data.position.width + toObject.data.position.width / 2,
-                        y: toObject.data.position.top - fromObject.data.position.top - fromObject.data.position.height / 2
-                    }
-                },
-                text: {
-                    from: {
-                        x: fromObject.data.position.left + fromObject.data.position.width + 10,
-                        y: fromObject.data.position.top + fromObject.data.position.height / 2 - 10,
-                    },
-                    to: {
-                        x: toObject.data.position.left + toObject.data.position.width / 2 + 10,
-                        y: toObject.data.position.top - 20
-                    }
-                }
-            };
-        }
-        else if (fromObject.data.position.left <= toObject.data.position.left) {
-            return {
-                line: {
-                    from: {
-                        x: fromObject.data.position.left + fromObject.data.position.width / 2,
-                        y: fromObject.data.position.top
-                    },
-                    to: {
-                        x: -(fromObject.data.position.left - toObject.data.position.left),
-                        y: -(fromObject.data.position.top - toObject.data.position.top - toObject.data.position.height)
-                    }
-                },
-                text: {
-                    from: {
-                        x: toObject.data.position.left + toObject.data.position.width / 2 + 10,
-                        y: fromObject.data.position.top - 20,
-                    },
-                    to: {
-                        x: toObject.data.position.left + toObject.data.position.width / 2 + 10,
-                        y: toObject.data.position.top + toObject.data.position.height + 10
-                    }
-                }
-            };
-        }
-        else {
-            console.log("Not yet implemented");
-        }
     };
     Relation.prototype.getKonva = function () {
         return { arrow: this.konvaArrow, text1: this.konvaText1, text2: this.konvaText2 };
