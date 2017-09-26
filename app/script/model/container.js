@@ -11,7 +11,7 @@ var Container = (function () {
             height: position.height,
             fill: '#f0f0f0',
             stroke: '#909090',
-            strokeWidth: 1
+            strokeWidth: 2
         });
         rect.on('mousedown', function () {
             console.log("Clicked: " + title);
@@ -28,12 +28,18 @@ var Container = (function () {
         Stage.layer.add(rect);
     };
     Container.prototype.addText = function (title, position) {
+        var textSize = 14;
+        if (title.includes("Top")) {
+          textSize = 24;
+        }
+
         var text = new Konva.Text({
             x: position.left + 5,
             y: position.top + 5,
             text: title,
-            fontSize: 14,
+            fontSize: textSize,
             fontFamily: 'Calibri',
+            fontStyle: 'bold',
             fill: 'black'
         });
         this.konvaText = text;
