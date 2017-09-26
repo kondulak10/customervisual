@@ -1,0 +1,8 @@
+.app {
+  width: 100%;
+  float: left;
+}
+.app #konva {
+  border: 1px solid black;
+  float: left;
+}
